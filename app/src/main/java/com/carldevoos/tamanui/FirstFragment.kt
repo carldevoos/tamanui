@@ -1,11 +1,12 @@
 package com.carldevoos.tamanui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.carldevoos.tamanui.databinding.FragmentFirstBinding
 
 /**
@@ -20,8 +21,8 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
@@ -32,9 +33,21 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }*/
+
+        val recyclerview = binding.mainList
+        recyclerview.layoutManager = LinearLayoutManager(context)
+
+        val data = ArrayList<ItemsViewModel>()
+        for (i in 1..20) {
+            data.add(ItemsViewModel( "Item " + i))
         }
+        Log.d("onStart", data.size.toString())
+        val adapter = CustomAdapter(data)
+
+        recyclerview.adapter = adapter
     }
 
     override fun onDestroyView() {
