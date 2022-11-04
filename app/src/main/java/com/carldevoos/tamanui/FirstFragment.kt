@@ -33,11 +33,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }*/
-
-        val recyclerview = binding.mainList
+        /*val recyclerview = binding.mainList
         recyclerview.layoutManager = LinearLayoutManager(context)
 
         val data = ArrayList<ItemsViewModel>()
@@ -47,7 +43,7 @@ class FirstFragment : Fragment() {
         Log.d("onStart", data.size.toString())
         val adapter = CustomAdapter(data)
 
-        recyclerview.adapter = adapter
+        recyclerview.adapter = adapter*/
     }
 
     override fun onDestroyView() {
