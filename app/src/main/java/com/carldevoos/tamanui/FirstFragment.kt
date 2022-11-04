@@ -42,7 +42,7 @@ class FirstFragment : Fragment() {
 
         val data = ArrayList<ItemsViewModel>()
         for (i in 1..20) {
-            data.add(ItemsViewModel( "Item " + i))
+            data.add(ItemsViewModel("Carlosssssssssssssssssssssssssssssssssssss" + i, (i * 10).toString()))
         }
         Log.d("onStart", data.size.toString())
         val adapter = CustomAdapter(data)

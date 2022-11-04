@@ -1,5 +1,5 @@
 package com.carldevoos.tamanui
 
-class ItemsViewModel(val text: String) {
+class ItemsViewModel(val name: String, val pricing: String) {
 
 }
