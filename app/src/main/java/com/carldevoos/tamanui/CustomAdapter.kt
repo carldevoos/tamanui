@@ -1,9 +1,9 @@
 package com.carldevoos.tamanui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,12 +24,13 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) :
 
         val itemsViewModel = mList[position]
 
-        // sets the image to the imageview from our itemHolder class
-        //holder.imageView.setImageResource()
+        holder.textDebtor.text = itemsViewModel.name
+        holder.textAmount.text = itemsViewModel.amount
 
-        // sets the text to the textview from our itemHolder class
-        holder.textView.text = itemsViewModel.name
+        holder.itemView.setOnClickListener {
 
+            Log.d("Debtor Name - Amount:", "${itemsViewModel.name} - ${itemsViewModel.amount}")
+        }
     }
 
     // return the number of the items in the list
@@ -39,7 +40,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>) :
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        //val imageView: ImageView = itemView.findViewById(R.id.imageview)
-        val textView: TextView = itemView.findViewById(R.id.tv_name_debtor)
+        val textDebtor: TextView = itemView.findViewById(R.id.tv_name_debtor)
+        val textAmount: TextView = itemView.findViewById(R.id.tv_amount)
     }
 }
