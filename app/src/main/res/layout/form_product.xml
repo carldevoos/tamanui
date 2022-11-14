@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:tag="form_product">
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Producto"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:labelFor="@id/img_debtor_number"
+        android:maxLines="1"
+        android:tag="product_name"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:labelFor="@id/img_debtor_number"
+        android:maxLines="1"
+        android:tag="product_price"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:hint="Fecha"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:labelFor="@id/img_debtor_number"
+        android:maxLines="1"
+        android:tag="product_date"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+</LinearLayout>
