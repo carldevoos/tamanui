@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     android:orientation="vertical"
-    android:padding="25dp"
+    android:paddingStart="15dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="15dp"
     android:tag="form_product">
 
     <EditText
@@ -34,7 +36,10 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:hint="Fecha"
         android:importantForAutofill="no"
         android:inputType="date"
@@ -43,4 +48,14 @@
         android:tag="product_date"
         android:textAlignment="textStart"
         android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="3dp"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_pencil"
+        android:tag="delete" />
 </LinearLayout>
