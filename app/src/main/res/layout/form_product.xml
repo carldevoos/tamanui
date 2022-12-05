@@ -2,13 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:background="@drawable/customborder"
     android:orientation="vertical"
     android:paddingStart="15dp"
-    android:paddingTop="20dp"
     android:paddingEnd="15dp"
-    android:tag="form_product"
-    android:background="@drawable/customborder">
+    android:paddingBottom="20dp"
+    android:tag="form_product">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_delete_trash"
+        android:tag="delete" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -49,14 +57,4 @@
         android:tag="product_date"
         android:textAlignment="textStart"
         android:textSize="20sp" />
-
-    <ImageView
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="start"
-        android:layout_marginTop="3dp"
-        android:clickable="true"
-        android:contentDescription="TODO"
-        android:src="@drawable/ic_pencil"
-        android:tag="delete" />
 </LinearLayout>

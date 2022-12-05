@@ -1,5 +1,6 @@
 package com.carldevoos.tamanui
 
+import android.app.ActionBar.LayoutParams
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
@@ -72,6 +73,10 @@ class AddDebtorFragment : Fragment() {
 
     private fun addChild(linearFormProduct: LinearLayout, resource: Int) {
         val formProduct = LayoutInflater.from(context).inflate(resource, null)
+        val lp = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        lp.setMargins(5, 15, 5, 0)
+        formProduct.layoutParams = lp
+
         val btnDelete = formProduct.findViewWithTag<View>("delete")
         val txtDate = formProduct.findViewWithTag<EditText>("product_date")
 

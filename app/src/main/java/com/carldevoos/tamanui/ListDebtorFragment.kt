@@ -30,8 +30,6 @@ class ListDebtorFragment : Fragment() {
         _binding = FragmentListDebtorBinding.inflate(inflater, container, false)
         val navController = NavHostFragment.findNavController(this)
 
-        val a = Debtor()
-
         binding.fab.setOnClickListener {
             navController.navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
