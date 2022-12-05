@@ -2,11 +2,10 @@ package com.carldevoos.tamanui.models
 
 import java.util.*
 
-class Transactions {
-
-    private lateinit var id: Long
-    private lateinit var debt_id: Long
-    private lateinit var date: Date
-    private lateinit var amount: Long
-    private lateinit var type: String
-}
+data class Transactions(
+    private var id: Long,
+    private var debt_id: Long,
+    private var date: Date,
+    private var amount: Long,
+    private var type: String
+)
