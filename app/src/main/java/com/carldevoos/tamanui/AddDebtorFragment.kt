@@ -3,7 +3,6 @@ package com.carldevoos.tamanui
 import android.app.ActionBar.LayoutParams
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,8 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.carldevoos.tamanui.databinding.FragmentAddDebtorBinding
+import com.carldevoos.tamanui.models.Debtor
+import com.carldevoos.tamanui.models.Product
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.*
 
@@ -30,10 +31,8 @@ class AddDebtorFragment : Fragment() {
     private lateinit var floatingActionButton: FloatingActionButton
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentAddDebtorBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -54,14 +53,39 @@ class AddDebtorFragment : Fragment() {
 
         this.floatingActionButton.setOnClickListener {
             //var listProduct = ArrayList<Any>()
+            // Debtor details
+            val debtorName = this.binding.txtDebtorName.text.toString()
+            if (debtorName.isEmpty() or debtorName.isBlank())
+                this.binding.txtDebtorName.error = "Is required!"
+
+            val debtorDocument = this.binding.txtDebtorDocument.text.toString()
+            val debtorPhone = this.binding.txtDebtorPhone.text.toString()
+            val debtor = Debtor(null, debtorName, debtorDocument, debtorPhone)
+
+            var listProduct: MutableList<Product> = mutableListOf()
+            var checkInputs: Boolean = true
             for (i in 0 until this.linearFormProduct.childCount) {
                 val item = this.linearFormProduct.getChildAt(i)
-                Log.d("Number", "$i")
-                val name = item.findViewWithTag<EditText>("product_name").text
-                val price = item.findViewWithTag<EditText>("product_price").text
-                val date = item.findViewWithTag<EditText>("product_date").text
 
-                Log.d("Product", "$name - $price - $date")
+                // Product Details
+                val productName = item.findViewWithTag<EditText>("product_name")
+                val productPrice = item.findViewWithTag<EditText>("product_price")
+
+                if (productName.text.isEmpty() or productName.text.isBlank()) {
+                    productName.error = "Is required!"
+                    checkInputs = false
+                }
+
+                if (productPrice.text.isEmpty() or productPrice.text.isBlank()) {
+                    productPrice.error = "Is required!"
+                    checkInputs = false
+                }
+
+                //val product = Product()
+            }
+
+            if (!checkInputs) {
+
             }
         }
     }
@@ -90,14 +114,10 @@ class AddDebtorFragment : Fragment() {
         txtDate.setOnClickListener {
             val datePickerDialog = context?.let { context ->
                 DatePickerDialog(
-                    context,
-                    { _, year, monthOfYear, dayOfMonth ->
+                    context, { _, year, monthOfYear, dayOfMonth ->
                         val dat = "$dayOfMonth-${monthOfYear + 1}-$year"
                         txtDate.setText(dat)
-                    },
-                    year,
-                    month,
-                    day
+                    }, year, month, day
                 )
             }
             datePickerDialog!!.show()
